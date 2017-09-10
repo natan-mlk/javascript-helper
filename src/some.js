@@ -1,11 +1,9 @@
 import React from 'react';
 
 
-
 class Test1 extends React.Component {
 
-    render () {
-
+    render() {
         const propsedArray = this.props.check;
 
         function checkAdult(arg) {
@@ -18,7 +16,7 @@ class Test1 extends React.Component {
                 <span>numbers <button onClick={function myFunction() {
                     document.getElementById("demo").innerHTML = propsedArray.some(checkAdult);
                 }}>{this.props.buttonName}</button></span>
-
+                <p>{this.props.description}</p>
             </div>
         )
     }
