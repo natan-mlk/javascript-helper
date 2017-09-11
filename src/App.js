@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './styles.css';
 //import Test1 from './some'
@@ -14,8 +13,8 @@ class App extends Component {
             nameOfArray: 'arrayNumbers',
             arrayNumbers: [3, 10, 18, 20],
             arrayStrings: ['kot', 'pies', 'krowa', 'mucha'],
-            numbersClass:  '',
-            stringsClass:  '',
+            numbersClass: '',
+            stringsClass: '',
         };
     }
 
@@ -29,13 +28,22 @@ class App extends Component {
     }
 
     popArray() {
-        // document.getElementById('result').innerHTML = arg.pop();
         this.setState(() => {
             this.state.currentArray.pop();
             return this.state.currentArray
         })
     }
-
+    shiftArray() {
+        this.setState(() => {
+            this.state.currentArray.shift();
+            return this.state.currentArray})
+    }
+    reverseArray(arg) {
+        this.setState(() => {
+            this.state.currentArray.reverse();
+            return this.state.currentArray
+        })
+    }
 
 
     render() {
@@ -52,6 +60,14 @@ class App extends Component {
 
                 <div className="choose-array">
                     <p>Wybierz tablicę:</p>
+                    <button className="reset"
+                            onClick={() => this.setState({
+                                arrayNumbers: [3, 10, 18, 20],
+                                arrayStrings: ['kot', 'pies', 'krowa', 'mucha'],
+                                numbersClass: '',
+                                stringsClass: ''
+                            })}>Resetuj tablice</button>
+
                     <div className={this.state.numbersClass + " numbers"}
                          onClick={() => this.setState({
                              currentArray: arrayNumbers,
@@ -62,6 +78,7 @@ class App extends Component {
                         <label>
                             arrayNumbers = [ {this.state.arrayNumbers.map((arg) => arg + ", ")}]
                         </label>
+
                     </div>
                     <div className={this.state.stringsClass + " strings"}
                          onClick={() => this.setState({
@@ -75,7 +92,7 @@ class App extends Component {
                         </label>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row first">
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="sort" nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.sortArray()}
                                     description="Sortuje elementy tablicy. Zobacz w jaki sposób"/>
@@ -84,11 +101,18 @@ class App extends Component {
                                     myFunction={() => this.popArray()}
                                     description="Usuwa ostatni element tablicy, zwracając jego wartość"/>
 
-                    <ArrayFunctions myArrayIs={this.state.currentArray} name="sort" nameOfArray={this.state.nameOfArray}
-                                    myFunction={() => this.sortArray()}
-                                    description="Sortuje elementy tablicy. Zobacz w jaki sposób"/>
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="shift" nameOfArray={this.state.nameOfArray}
+                                    myFunction={() => this.shiftArray()}
+                                    description="Usuwa ostatni element tablicy, zwracając jego wartość"/>
+                </div>
+                <div className="row">
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="reverse" nameOfArray={this.state.nameOfArray}
+                                    myFunction={() => this.reverseArray()}
+                                    description="Odwraca kolejność elementóe tablicy."/>
                 </div>
 
+                {/*spis metod*/}
+                {/*https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array*/}
 
                 {/*<p>metoda zwraca nam: <span id="result"> </span></p>*/}
                 {/*<p>tablica wygląda tak: <span>[ {this.state.currentArray.map((arg) => arg + ", ")}]</span></p>*/}

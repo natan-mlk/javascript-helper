@@ -9,27 +9,13 @@ class ArrayFunctions extends React.Component {
         };
     }
 
-    // onLinkClicked(event) {
-    //     event.preventDefault();
-    //     this.setState({ isActive: 'active' });
-    // }  () => {this.setState({isActive: 'active'});
-
-
-    _handleClick (){
-        this.setState({ isActive: 'active' }, function() {
-            return this.props.myFunction;
-        });
-
-    }
-
-
     render() {
 
         return (
             <div className="array-functions">
                 <p className="function-name">{this.props.nameOfArray}
                     <button className={this.state.isActive + ' fire-function'}
-                            onClick={this._handleClick.bind(this)}>.{this.props.name}()</button>
+                            onClick={this.props.myFunction}>.{this.props.name}()</button>
                 </p>
                 <p>{this.props.description}</p>
             </div>

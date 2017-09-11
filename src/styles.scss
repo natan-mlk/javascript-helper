@@ -1,7 +1,6 @@
 $green : #9fa255;
 $green-dark : darken($green, 10);
 
-
 body {
   font-family: 'Amiko', sans-serif;
   font-size: 100%;
@@ -27,10 +26,14 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.7rem;
+    border-top: solid 2px $green;
+
     -webkit-transition: 0.2s;
     transition: 0.2s;
   }
-  border-bottom: solid 2px $green
+  .strings {
+    border-bottom: solid 2px $green;
+  }
 }
 
 .active {
@@ -48,10 +51,14 @@ input[type=radio]{
 
 
 .row {
-  margin: 300px auto 0;
+  margin: 0 auto;
   max-width: 1400px;
   display: flex;
   position: relative;
+}
+
+.first {
+  margin: 300px auto 0;
 }
 
 .array-functions {
@@ -74,6 +81,7 @@ input[type=radio]{
   outline: none;
   -webkit-transition: 0.15s;
   transition: 0.15s;
+  cursor: pointer;
 
   &:hover {
     background-color: $green;
@@ -82,4 +90,15 @@ input[type=radio]{
   &:active {
     background-color: $green-dark;
   }
+}
+
+.reset {
+  @extend .fire-function;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  padding: 6px 10px 4px 5px;
+  font-size: 1rem;
+  background-color: $green;
+  color: white;
 }
