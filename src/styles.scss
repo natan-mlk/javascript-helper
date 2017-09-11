@@ -8,7 +8,7 @@ body {
 }
 
 .App-header {
-  background-color: $green-dark;
+  background-color: #3d3d3d;
   height: 100px;
   padding: 20px;
   color: white;
@@ -17,20 +17,29 @@ body {
 .choose-array {
   width: 100%;
   position: fixed;
-  height: 200px;
-  background-color: antiquewhite;
+  height: 253px;
+  //background-color: lighten($green,45);
   z-index: 10;
   .numbers, .strings {
+    //background-color: lighten($green,45);
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.7rem;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
   }
+  border-bottom: solid 2px $green
+}
+
+.active {
+  background-color: lighten($green,25);
 }
 
 label {
   cursor: pointer;
+  color: darken($green-dark,10);
 }
 
 input[type=radio]{
@@ -39,7 +48,7 @@ input[type=radio]{
 
 
 .row {
-  margin: 200px auto 0;
+  margin: 300px auto 0;
   max-width: 1400px;
   display: flex;
   position: relative;
@@ -63,8 +72,8 @@ input[type=radio]{
   font-size: 1.5rem;
   color: $green;
   outline: none;
-  -webkit-transition: 0.15s ease-in-out;
-  transition: 0.15s ease-in-out;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
 
   &:hover {
     background-color: $green;

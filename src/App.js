@@ -14,6 +14,8 @@ class App extends Component {
             nameOfArray: 'arrayNumbers',
             arrayNumbers: [3, 10, 18, 20],
             arrayStrings: ['kot', 'pies', 'krowa', 'mucha'],
+            numbersClass:  '',
+            stringsClass:  '',
         };
         console.log("currentArray: " + this.state.currentArray);
     }
@@ -35,6 +37,8 @@ class App extends Component {
         })
     }
 
+
+
     render() {
 
         const arrayNumbers = this.state.arrayNumbers;
@@ -48,26 +52,28 @@ class App extends Component {
                 </div>
 
                 <div className="choose-array">
-                    <div className="numbers">
-
-                        <input type="radio" value="1" name="my-radio"
-                               onClick={() => this.setState({
-                                   currentArray: arrayNumbers,
-                                   nameOfArray: 'arrayNumbers'
-                               })}/>
+                    <p>Wybierz tablicę:</p>
+                    <div className={this.state.numbersClass + " numbers"}
+                         onClick={() => this.setState({
+                             currentArray: arrayNumbers,
+                             nameOfArray: 'arrayNumbers',
+                             numbersClass: 'active',
+                             stringsClass: '',
+                         })}>
                         <label>
                             arrayNumbers = [ {this.state.arrayNumbers.map((arg) => arg + ", ")}]
                         </label>
                     </div>
-                    <div className="strings">
-
-                        <input type="radio" value="1" name="my-radio"
-                               onClick={() => this.setState({
-                                   currentArray: arrayStrings,
-                                   nameOfArray: 'arrayStrings'
-                               })}/><label>
-                        arrayStrings = [ {this.state.arrayStrings.map((arg) => arg + ", ")}]
-                    </label>
+                    <div className={this.state.stringsClass + " strings"}
+                         onClick={() => this.setState({
+                             currentArray: arrayStrings,
+                             nameOfArray: 'arrayStrings',
+                             numbersClass: '',
+                             stringsClass: 'active',
+                         })}>
+                        <label>
+                            arrayStrings = [ {this.state.arrayStrings.map((arg) => arg + ", ")}]
+                        </label>
                     </div>
                 </div>
                 <div className="row">
@@ -122,6 +128,7 @@ class App extends Component {
 
             </div>
         );
+
     }
 }
 
