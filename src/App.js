@@ -17,7 +17,6 @@ class App extends Component {
             numbersClass:  '',
             stringsClass:  '',
         };
-        console.log("currentArray: " + this.state.currentArray);
     }
 
 
