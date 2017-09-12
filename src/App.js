@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 
 import './App.css';
 import './styles.css';
@@ -15,9 +15,9 @@ const App = () => {
                     <h2>Ogarnij Javascript :]</h2>
                 </div>
                 <nav>
-                    <div className="nav-link"><Link to="/array-change">Zmienia tablicę</Link></div>
-                    <div className="nav-link"><Link to="/">Zwraca True/false</Link></div>
-                    <div className="nav-link">Zwraca pojedynczą wartość</div>
+                    <NavLink activeClassName='is-active' className="nav-link" to="/array-change">Zmienia tablicę</NavLink>
+                    <NavLink exact={true} activeClassName='is-active' className="nav-link" to="/">Zwraca True/false</NavLink>
+                    <NavLink activeClassName='is-active' className="nav-link" to="#">Zwraca pojedynczą wartość</NavLink>
                 </nav>
                 <Route exact path="/" component={ArrayTrueFalse} />
                 <Route path="/array-change" component={ArrayChange} />

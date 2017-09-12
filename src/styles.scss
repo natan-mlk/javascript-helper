@@ -1,9 +1,14 @@
-$green : #9fa255;
-$green-dark : darken($green, 10);
+$green: #9fa255;
+$green-dark: darken($green, 10);
 
 body {
   font-family: 'Amiko', sans-serif;
   font-size: 100%;
+}
+
+.App {
+  text-align: center;
+  background-color: lighten($green, 45)
 }
 
 .App-header {
@@ -15,25 +20,39 @@ body {
 
 nav {
   display: flex;
+  a.nav-link {
+    text-decoration: none;
+    color: $green-dark;
+    &:active {
+      color: $green-dark;
+    }
+  }
   .nav-link {
     flex-grow: 1;
-    padding-top: 15px;
+    padding: 15px 0 10px;
     font-size: 1.2rem;
     text-transform: uppercase;
-    border: 2px solid black;
+    border: 2px solid $green-dark;
+    border-left: 1px;
+    //border-left: 1px;
+    background-color: #d9d9d9;
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+  }
+  .is-active {
+    border-bottom: 2px solid lighten($green, 45);
+    background-color: lighten($green, 45);
   }
 }
-
-
 
 .choose-array {
   width: 100%;
   position: fixed;
   height: 253px;
-top: 200px;
+  top: 200px;
   z-index: 10;
   .numbers, .strings {
-    //background-color: lighten($green,45);
+background-color: white;
     height: 100px;
     display: flex;
     align-items: center;
@@ -44,17 +63,16 @@ top: 200px;
     -webkit-transition: 0.2s;
     transition: 0.2s;
   }
+  .active {
+    background-color: lighten($green, 25);
+  }
   .strings {
     border-bottom: solid 2px $green;
   }
 }
 
-.active {
-  background-color: lighten($green,25);
-}
-
 .given-array {
-  color: darken($green-dark,10);
+  color: darken($green-dark, 10);
 }
 
 .row {
@@ -75,7 +93,6 @@ top: 200px;
     font-size: 1.2rem;
   }
 }
-
 
 .fire-function {
   background-color: white;
