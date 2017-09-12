@@ -10,9 +10,9 @@ class App extends Component {
         super(props);
         this.state = {
             currentArray: [],
-            nameOfArray: 'arrayNumbers',
+            nameOfArray: '*Wybierz tablicę*',
             arrayNumbers: [3, 10, 18, 20],
-            arrayStrings: ['kot', 'pies', 'krowa', 'mucha'],
+            arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
             numbersClass: '',
             stringsClass: '',
         };
@@ -44,7 +44,12 @@ class App extends Component {
             return this.state.currentArray
         })
     }
-
+    fillArray() {
+        this.setState(() => {
+            this.state.currentArray.fill('lol');
+            return this.state.currentArray
+        })
+    }
 
     render() {
 
@@ -63,9 +68,10 @@ class App extends Component {
                     <button className="reset"
                             onClick={() => this.setState({
                                 arrayNumbers: [3, 10, 18, 20],
-                                arrayStrings: ['kot', 'pies', 'krowa', 'mucha'],
+                                arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
                                 numbersClass: '',
-                                stringsClass: ''
+                                stringsClass: '',
+                                nameOfArray: '*Wybierz tablicę*',
                             })}>Resetuj tablice</button>
 
                     <div className={this.state.numbersClass + " numbers"}
@@ -75,9 +81,9 @@ class App extends Component {
                              numbersClass: 'active',
                              stringsClass: '',
                          })}>
-                        <label>
+                        <p className="given-array">
                             arrayNumbers = [ {this.state.arrayNumbers.map((arg) => arg + ", ")}]
-                        </label>
+                        </p>
 
                     </div>
                     <div className={this.state.stringsClass + " strings"}
@@ -87,9 +93,9 @@ class App extends Component {
                              numbersClass: '',
                              stringsClass: 'active',
                          })}>
-                        <label>
-                            arrayStrings = [ {this.state.arrayStrings.map((arg) => arg + ", ")}]
-                        </label>
+                        <p className="given-array">
+                            <span><div></div>arrayStrings = [ {this.state.arrayStrings.map((arg) => arg + ", ")}]</span>
+                        </p>
                     </div>
                 </div>
                 <div className="row first">
@@ -103,16 +109,37 @@ class App extends Component {
 
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="shift" nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.shiftArray()}
-                                    description="Usuwa ostatni element tablicy, zwracając jego wartość"/>
+                                    description="Usuwa pierwszy element tablicy, zwracając jego wartość"/>
                 </div>
                 <div className="row">
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="reverse" nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.reverseArray()}
-                                    description="Odwraca kolejność elementóe tablicy."/>
+                                    description="Odwraca kolejność elementów tablicy."/>
+
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="fill" nameOfArray={this.state.nameOfArray} brackets="'lol'"
+                                    myFunction={() => this.fillArray()}
+                                    description="Zastępuje wszystkie elementy tablicy daną wartością. Przyjmuje: fill(value, start, end)"/>
                 </div>
 
                 {/*spis metod*/}
                 {/*https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array*/}
+
+                {/*Zwraca True/false: isArray(), every(), includes(),  some()*/}
+
+                {/*Zwraca pojedynczą wartość: find(), findIndex(), indexOf(), lastIndexOf()*/}
+
+                {/*Zmienia Array: copyWithin(), *fill(), push(), splice(), unshift()*/}
+
+                {/*Nowy Array: filter(), map(), slice()*/}
+
+                {/*Działania na 2 array: concat(),*/}
+
+                {/*Iteracja po tablicy: forEach()*/}
+
+                {/*Laczy tablice: join()*/}
+
+                {/*Metoda specjalna: reduce(), reduceRight()*/}
+
 
                 {/*<p>metoda zwraca nam: <span id="result"> </span></p>*/}
                 {/*<p>tablica wygląda tak: <span>[ {this.state.currentArray.map((arg) => arg + ", ")}]</span></p>*/}

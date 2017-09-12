@@ -15,7 +15,7 @@ class ArrayFunctions extends React.Component {
             <div className="array-functions">
                 <p className="function-name">{this.props.nameOfArray}
                     <button className={this.state.isActive + ' fire-function'}
-                            onClick={this.props.myFunction}>.{this.props.name}()</button>
+                            onClick={this.props.myFunction}>.{this.props.name}( {this.props.brackets} )</button>
                 </p>
                 <p>{this.props.description}</p>
             </div>
