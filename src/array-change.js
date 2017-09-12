@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ArrayFunctions from './array-functions'
 
 
-
 class ArrayChange extends Component {
 
     constructor(props) {
@@ -19,34 +18,33 @@ class ArrayChange extends Component {
 
 
     //functions
-    sortArray(arg) {
-        this.setState(() => {
-            this.state.currentArray.sort();
-            return this.state.currentArray
-        })
+    sortArray() {
+        this.setState({
+            currentArray: this.state.currentArray.sort()} //można zapisać to samo na 2 sposoby
+        )
     }
 
     popArray() {
         this.setState(() => {
             this.state.currentArray.pop();
-            return this.state.currentArray
         })
     }
+
     shiftArray() {
         this.setState(() => {
             this.state.currentArray.shift();
-            return this.state.currentArray})
-    }
-    reverseArray(arg) {
-        this.setState(() => {
-            this.state.currentArray.reverse();
-            return this.state.currentArray
         })
     }
+
+    reverseArray() {
+        this.setState(() => {
+            this.state.currentArray.reverse();
+        })
+    }
+
     fillArray() {
         this.setState(() => {
             this.state.currentArray.fill('lol');
-            return this.state.currentArray
         })
     }
 
@@ -67,7 +65,8 @@ class ArrayChange extends Component {
                                 numbersClass: '',
                                 stringsClass: '',
                                 nameOfArray: '*Wybierz tablicę*',
-                            })}>Resetuj tablice</button>
+                            })}>Resetuj tablice
+                    </button>
 
                     <div className={this.state.numbersClass + " numbers"}
                          onClick={() => this.setState({
@@ -102,16 +101,19 @@ class ArrayChange extends Component {
                                     myFunction={() => this.popArray()}
                                     description="Usuwa ostatni element tablicy, zwracając jego wartość"/>
 
-                    <ArrayFunctions myArrayIs={this.state.currentArray} name="shift" nameOfArray={this.state.nameOfArray}
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="shift"
+                                    nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.shiftArray()}
                                     description="Usuwa pierwszy element tablicy, zwracając jego wartość"/>
                 </div>
                 <div className="row">
-                    <ArrayFunctions myArrayIs={this.state.currentArray} name="reverse" nameOfArray={this.state.nameOfArray}
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="reverse"
+                                    nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.reverseArray()}
                                     description="Odwraca kolejność elementów tablicy."/>
 
-                    <ArrayFunctions myArrayIs={this.state.currentArray} name="fill" nameOfArray={this.state.nameOfArray} brackets="'lol'"
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="fill" nameOfArray={this.state.nameOfArray}
+                                    brackets="'lol'"
                                     myFunction={() => this.fillArray()}
                                     description="Zastępuje wszystkie elementy tablicy daną wartością. Przyjmuje: fill(value, start, end)"/>
                 </div>

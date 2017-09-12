@@ -18,6 +18,7 @@ class ArrayFunctions extends React.Component {
                             onClick={this.props.myFunction}>.{this.props.name}( {this.props.brackets} )</button>
                 </p>
                 <p>{this.props.description}</p>
+                <p className="true-false">{this.props.trueOrFalse}</p>
             </div>
         )
     }
