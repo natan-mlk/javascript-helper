@@ -18,7 +18,7 @@ class ArrayTrueFalse extends Component {
     }
 
     everyArray() {
-        if (this.state.currentArray.every((elem) => elem >= 10)) {
+        if (this.state.currentArray.every((elem) => elem >= 3)) {
             this.setState({
                 trueOrFalse: 'true'
             });
