@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ArrayFunctions from './array-functions'
+import ArrayFunctions from './array-change-functions'
 
 
 class ArrayChange extends Component {

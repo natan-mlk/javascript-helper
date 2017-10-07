@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import './styles.css';
-//import Test1 from './some'
+
 import ArrayTrueFalse from './array-true-false'
 import ArrayChange from './array-change'
 

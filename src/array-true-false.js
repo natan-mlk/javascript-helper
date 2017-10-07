@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import ArrayFunctions from './array-functions'
-import ArrayFunctions2 from './array-functions-2'
+import ArrayFunctions from './array-true-false-functions'
+
 
 class ArrayTrueFalse extends Component {
 
@@ -13,27 +13,26 @@ class ArrayTrueFalse extends Component {
             arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
             numbersClass: '',
             stringsClass: '',
-            trueOrFalse: 'true or false?',
         };
     }
 
     everyArray() {
-        if (this.state.currentArray.every((elem) => elem >= 3)) {
-            this.setState({
-                trueOrFalse: 'true'
-            });
-        } else {
-            this.setState({
-                trueOrFalse: 'false'
-            });
+        if (this.state.currentArray.length > 0) {
+            if (this.state.currentArray.every((elem) => elem >= 10)) {
+                return 'true'
+            } else {
+                return 'false'
+            }
         }
     }
 
     someArray() {
-        if (this.state.currentArray.some((elem) => elem >= 10)) {
-            document.getElementById('test').setAttribute('trueOrFalse', 'TRUE')
-        } else {
-            this.setAttribute('trueOrFalse', 'lol')
+        if (this.state.currentArray.length > 0) {
+            if (this.state.currentArray.some((elem) => elem >= 10)) {
+                return 'true'
+            } else {
+                return 'false'
+            }
         }
     }
 
@@ -87,22 +86,14 @@ class ArrayTrueFalse extends Component {
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="every"
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.everyArray()}
-                                    trueOrFalse={this.state.trueOrFalse}
                                     brackets="func"
-                                    description="Sprawdza czy każdy element spełnia warunek zadany w funckji func"/>
-
-                    <ArrayFunctions2 myArrayIs={this.state.currentArray} name="some"
-                                     nameOfArray={this.state.nameOfArray}
-                                     myFunction={() => this.someArray()}
-                                     trueOrFalse='???'
-                                     brackets="func"
-                                     description="Sprawdza czy to jest tablica"
-                                     id="test"/>
+                                    description="Czy każdy element spełnia warunek zadany w funkcji func"/>
 
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="some"
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.someArray()}
-                                    description="Sprawdza czy to jest tablica"/>
+                                    brackets="func"
+                                    description="Czy chociaż jeden element spełnia warunek zadany w funkcji func"/>
                 </div>
             </div>
         )
