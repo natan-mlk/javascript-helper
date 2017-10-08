@@ -12,6 +12,9 @@ class ArrayTrueFalse extends Component {
             arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'urlop'],
             numbersClass: '',
             stringsClass: '',
+            func1Class: '',
+            func2Class: '',
+            func3Class: '',
             whatFunction: undefined
         };
     }
@@ -19,13 +22,16 @@ class ArrayTrueFalse extends Component {
     findArray() {
         if (this.state.currentArray.length > 0 && this.state.whatFunction !== undefined) {
             return this.state.currentArray.find(this.state.whatFunction);
-        } else {return '!wybierz funkcję!'}
+        } else {
+            return '!wybierz tablicę i funkcję!'
+        }
     }
 
     findIndexArray() {
-        if (this.state.currentArray.length > 0) {
-            return this.state.currentArray.findIndex((elem) => elem > 3);
-
+        if (this.state.currentArray.length > 0 && this.state.whatFunction !== undefined) {
+            return this.state.currentArray.findIndex(this.state.whatFunction);
+        } else {
+            return '!wybierz tablicę i funkcję!'
         }
     }
 
@@ -52,15 +58,15 @@ class ArrayTrueFalse extends Component {
 
                 <div className="choose-array">
                     <p>Wybierz tablicę:</p>
-                    <button className="reset"
-                            onClick={() => this.setState({
-                                arrayNumbers: [3, 10, 18, 20],
-                                arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'urlop'],
-                                numbersClass: '',
-                                stringsClass: '',
-                                nameOfArray: '[ ]',
-                            })}>Resetuj tablice
-                    </button>
+                    {/*<button className="reset"*/}
+                            {/*onClick={() => this.setState({*/}
+                                {/*arrayNumbers: [3, 10, 18, 20],*/}
+                                {/*arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'urlop'],*/}
+                                {/*numbersClass: '',*/}
+                                {/*stringsClass: '',*/}
+                                {/*nameOfArray: '[ ]',*/}
+                            {/*})}>Resetuj tablice*/}
+                    {/*</button>*/}
 
                     <div className={this.state.numbersClass + " numbers"}
                          onClick={() => this.setState({
@@ -87,17 +93,36 @@ class ArrayTrueFalse extends Component {
                     </div>
                 </div>
 
+                <div className="">
+                    <p>Wybierz funkcję, która zdefiniuje warunek:</p>
+                </div>
+
                 <div className="choose-function">
-                    <div className="chosen-func"
-                         onClick={() => this.setState({whatFunction: (elem) => elem > 3})}>
+                    <div className={this.state.func1Class + " chosen-func"}
+                         onClick={() => this.setState({
+                             whatFunction: (elem) => elem >= 3,
+                             func1Class: 'active',
+                             func2Class: '',
+                             func3Class: '',
+                         })}>
                         <p>let Func = (elem) => elem > 3</p>
                     </div>
-                    <div className="chosen-func"
-                         onClick={() => this.setState({whatFunction: (elem) => elem > 10})}>
+                    <div className={this.state.func2Class + " chosen-func"}
+                         onClick={() => this.setState({
+                             whatFunction: (elem) => elem > 10,
+                             func1Class: '',
+                             func2Class: 'active',
+                             func3Class: '',
+                         })}>
                         <p>let Func = (elem) => elem > 10</p></div>
-                    <div className="chosen-func"
-                         onClick={() => this.setState({whatFunction: (elem) => elem > 19})}>
-                        <p>let Func = (elem) => elem > 19</p></div>
+                    <div className={this.state.func3Class + " chosen-func"}
+                         onClick={() => this.setState({
+                             whatFunction: (elem) => elem === 'burger',
+                             func1Class: '',
+                             func2Class: '',
+                             func3Class: 'active',
+                         })}>
+                        <p>let Func = (elem) => elem === 'burger'</p></div>
                 </div>
 
                 <div className="row first">
@@ -118,13 +143,13 @@ class ArrayTrueFalse extends Component {
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.indexOfArray()}
                                     brackets="'kot'"
-                                    description="Zwraca index pierwszego pojawienia się elementu, który spełni warunek"/>
+                                    description="Zwraca index pierwszego pojawienia się zadanego elementu"/>
 
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="lastIndexOf"
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.lastIndexOfArray()}
                                     brackets="'kot'"
-                                    description="Zwraca index ostatniego pojawienia się elementu, który spełni warunek"/>
+                                    description="Zwraca index ostatniego pojawienia się zadanego elementu"/>
 
                 </div>
             </div>

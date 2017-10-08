@@ -12,14 +12,21 @@ body {
 }
 
 .App-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
   background-color: #3d3d3d;
-  height: 100px;
-  padding: 20px;
+  height: 115px;
   color: white;
+  z-index: 5;
 }
 
 nav {
   display: flex;
+  position: fixed;
+  width: 100%;
+  top: 115px;
+  z-index: 5;
   a.nav-link {
     text-decoration: none;
     color: $green-dark;
@@ -47,13 +54,12 @@ nav {
 
 .choose-array {
   width: 100%;
-  position: fixed;
-  height: 253px;
-  top: 200px;
+  //height: 253px;
+  padding-top: 175px;
   z-index: 10;
   .numbers, .strings {
     background-color: white;
-    height: 80px;
+    //height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,22 +81,28 @@ nav {
   color: darken($green-dark, 10);
 }
 
+.choose-function-descr {
+text-align: center;
+}
+
 .choose-function {
   width: 100%;
-  position: fixed;
-  height: 80px;
   top: 420px;
-  z-index: 10;
   cursor: pointer;
   background-color: white;
+  color: darken($green-dark, 10);
+  border-top: solid 2px $green;
   border-bottom: solid 2px $green;
   display: flex;
   .chosen-func {
     flex-grow: 1;
-    font-size: 1.5rem;
-    border-left: 1px solid $green-dark;
+    font-size: 1.3rem;
+    border-left: 2px solid $green;
     -webkit-transition: 0.15s;
     transition: 0.15s;
+    &:hover {
+      background-color: lighten($green, 25);
+    }
   }
 
   .active {
@@ -109,7 +121,7 @@ nav {
 }
 
 .first {
-  margin: 300px auto 0;
+  margin: 0 auto ;
 }
 
 .array-functions {
@@ -155,8 +167,8 @@ nav {
 .reset {
   @extend .fire-function;
   position: absolute;
-  right: 20px;
-  top: 10px;
+  right: 30px;
+  top: 182px;
   padding: 6px 10px 4px 5px;
   font-size: 1rem;
   background-color: $green;
