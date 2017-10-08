@@ -10,7 +10,7 @@ class ArrayTrueFalse extends Component {
             currentArray: [],
             nameOfArray: '[Wybierz tablicę]',
             arrayNumbers: [3, 10, 18, 20],
-            arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
+            arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'urlop'],
             numbersClass: '',
             stringsClass: '',
         };
@@ -23,9 +23,22 @@ class ArrayTrueFalse extends Component {
         }
     }
 
-    findIndexArray () {
+    findIndexArray() {
         if (this.state.currentArray.length > 0) {
             return this.state.currentArray.findIndex((elem) => elem > 3);
+
+        }
+    }
+
+    indexOfArray () {
+        if (this.state.currentArray.length > 0) {
+            return this.state.currentArray.indexOf('kot');
+        }
+    }
+
+    lastIndexOfArray () {
+        if (this.state.currentArray.length > 0) {
+            return this.state.currentArray.lastIndexOf('kot');
         }
     }
 
@@ -44,7 +57,7 @@ class ArrayTrueFalse extends Component {
                     <button className="reset"
                             onClick={() => this.setState({
                                 arrayNumbers: [3, 10, 18, 20],
-                                arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
+                                arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'urlop'],
                                 numbersClass: '',
                                 stringsClass: '',
                                 nameOfArray: '[Wybierz tablicę]',
@@ -81,13 +94,26 @@ class ArrayTrueFalse extends Component {
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.findArray()}
                                     brackets="func"
-                                    description="Zwróć pierwszy element, który spełni warunek"/>
+                                    description="Zwróć pierwszy element, który spełni warunek [ES6]"/>
 
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="findIndex"
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.findIndexArray()}
                                     brackets="func"
                                     description="Zwróć index pierwszego elementu, który spełni warunek"/>
+                </div>
+                <div className="row">
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="indexOf"
+                                    nameOfArray={this.state.nameOfArray}
+                                    myFunction={() => this.indexOfArray()}
+                                    brackets="'kot'"
+                                    description="Zwraca index pierwszego pojawienia się elementu, który spełni warunek"/>
+
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="lastIndexOf"
+                                    nameOfArray={this.state.nameOfArray}
+                                    myFunction={() => this.lastIndexOfArray()}
+                                    brackets="'kot'"
+                                    description="Zwraca index ostatniego pojawienia się elementu, który spełni warunek"/>
 
                 </div>
             </div>
