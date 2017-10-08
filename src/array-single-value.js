@@ -84,7 +84,7 @@ class ArrayTrueFalse extends Component {
                              stringsClass: 'active',
                          })}>
                         <p className="given-array">
-                            <span><div></div>arrayStrings = [ {this.state.arrayStrings.map((arg) => arg + ", ")}]</span>
+                            <span>arrayStrings = [ {this.state.arrayStrings.map((arg) => arg + ", ")}]</span>
                         </p>
                     </div>
                 </div>
