@@ -8,7 +8,7 @@ class ArrayTrueFalse extends Component {
         super(props);
         this.state = {
             currentArray: [],
-            nameOfArray: '*Wybierz tablicę*',
+            nameOfArray: '[Wybierz tablicę]',
             arrayNumbers: [3, 10, 18, 20],
             arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
             numbersClass: '',
@@ -64,7 +64,7 @@ class ArrayTrueFalse extends Component {
                                 arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
                                 numbersClass: '',
                                 stringsClass: '',
-                                nameOfArray: '*Wybierz tablicę*',
+                                nameOfArray: '[Wybierz tablicę]',
                             })}>Resetuj tablice
                     </button>
 
@@ -109,8 +109,8 @@ class ArrayTrueFalse extends Component {
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="includes"
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.includesArray()}
-                                    brackets="kot"
-                                    description="Ustala czy dana tablica posiada szukany element"/>
+                                    brackets="'kot'"
+                                    description="Ustala czy dana tablica posiada szukany element (ES7)"/>
                 </div>
             </div>
         )

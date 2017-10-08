@@ -13,7 +13,8 @@ const App = () => {
         <Router>
             <div className="App">
                 <div className="App-header">
-                    <h2>Ogarnij Javascript :]</h2>
+                    <h3>Ogarnij Javascript :]</h3>
+                    <h2>Metody dla [tablic, tablic, tablic]</h2>
                 </div>
 
                 <nav>

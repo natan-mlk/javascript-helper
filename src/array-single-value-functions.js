@@ -20,7 +20,8 @@ class ArrayFunctions extends React.Component {
                     </button>
                 </p>
                 <p>{this.props.description}</p>
-                <p className="true-false">Dla {this.state.arrayName} metoda zwraca : {this.state.returnedValue}</p>
+                <p className="true-false">Dla <span className="function-name">{this.state.arrayName}</span> metoda zwraca :
+                    <span className="outcome">{this.state.returnedValue}</span></p>
             </div>
         )
     }

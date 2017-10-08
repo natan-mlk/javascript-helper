@@ -52,7 +52,7 @@ nav {
   top: 200px;
   z-index: 10;
   .numbers, .strings {
-background-color: white;
+    background-color: white;
     height: 100px;
     display: flex;
     align-items: center;
@@ -119,9 +119,11 @@ background-color: white;
   }
 }
 
-.active {
-  background-color: $green;
-  color: white;
+.outcome {
+  font-family: 'Amiko', sans-serif;
+  font-size: 1.5rem;
+  color: $green-dark;
+  font-weight: 600;
 }
 
 .reset {

@@ -8,7 +8,7 @@ class ArrayChange extends Component {
         super(props);
         this.state = {
             currentArray: [],
-            nameOfArray: '*Wybierz tablicę*',
+            nameOfArray: '[Wybierz tablicę]',
             arrayNumbers: [3, 10, 18, 20],
             arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
             numbersClass: '',
@@ -64,7 +64,7 @@ class ArrayChange extends Component {
                                 arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
                                 numbersClass: '',
                                 stringsClass: '',
-                                nameOfArray: '*Wybierz tablicę*',
+                                nameOfArray: '[Wybierz tablicę]',
                             })}>Resetuj tablice
                     </button>
 
