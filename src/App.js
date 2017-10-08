@@ -14,7 +14,7 @@ const App = () => {
             <div className="App">
                 <div className="App-header">
                     <h3>Ogarnij Javascript :] czyli React.js </h3>
-                    <h2>Metody dla [tablic, tablic, tablic]</h2>
+                    <h2>Metody dla [tablic]</h2>
                 </div>
 
                 <nav>

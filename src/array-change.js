@@ -9,8 +9,8 @@ class ArrayChange extends Component {
         this.state = {
             currentArray: [],
             nameOfArray: '[Wybierz tablicę]',
-            arrayNumbers: [3, 10, 18, 20],
-            arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
+            arrayNumbers: [3, 10, 18, 20, 3, 11],
+            arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'wiedźmin'],
             numbersClass: '',
             stringsClass: '',
         };
@@ -60,8 +60,8 @@ class ArrayChange extends Component {
                     <p>Wybierz tablicę:</p>
                     <button className="reset"
                             onClick={() => this.setState({
-                                arrayNumbers: [3, 10, 18, 20],
-                                arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
+                                arrayNumbers: [3, 10, 18, 20, 3, 11],
+                                arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'wiedźmin'],
                                 numbersClass: '',
                                 stringsClass: '',
                                 nameOfArray: '[Wybierz tablicę]',

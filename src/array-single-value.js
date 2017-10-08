@@ -8,8 +8,8 @@ class ArrayTrueFalse extends Component {
         this.state = {
             currentArray: [],
             nameOfArray: '[ ]',
-            arrayNumbers: [3, 10, 18, 20],
-            arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'urlop'],
+            arrayNumbers: [3, 10, 18, 20, 3, 11],
+            arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'wiedźmin'],
             numbersClass: '',
             stringsClass: '',
             func1Class: '',
@@ -100,12 +100,12 @@ class ArrayTrueFalse extends Component {
                 <div className="choose-function">
                     <div className={this.state.func1Class + " chosen-func"}
                          onClick={() => this.setState({
-                             whatFunction: (elem) => elem >= 3,
+                             whatFunction: (elem) => elem === 'number',
                              func1Class: 'active',
                              func2Class: '',
                              func3Class: '',
                          })}>
-                        <p>let Func = (elem) => elem > 3</p>
+                        <p>let Func = (elem) => elem === 'number'</p>
                     </div>
                     <div className={this.state.func2Class + " chosen-func"}
                          onClick={() => this.setState({
@@ -117,12 +117,12 @@ class ArrayTrueFalse extends Component {
                         <p>let Func = (elem) => elem > 10</p></div>
                     <div className={this.state.func3Class + " chosen-func"}
                          onClick={() => this.setState({
-                             whatFunction: (elem) => elem === 'burger',
+                             whatFunction: (elem) => elem.length === 8,
                              func1Class: '',
                              func2Class: '',
                              func3Class: 'active',
                          })}>
-                        <p>let Func = (elem) => elem === 'burger'</p></div>
+                        <p>let Func = (elem) => elem.length === 8</p></div>
                 </div>
 
                 <div className="row first">
@@ -130,13 +130,13 @@ class ArrayTrueFalse extends Component {
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.findArray()}
                                     brackets="Func"
-                                    description="Zwróć pierwszy element, który spełni warunek [ES6]"/>
+                                    description="Zwraca pierwszy element, który spełni warunek [ES6]"/>
 
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="findIndex"
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.findIndexArray()}
                                     brackets="Func"
-                                    description="Zwróć index pierwszego elementu, który spełni warunek"/>
+                                    description="Zwraca index pierwszego elementu, który spełni warunek"/>
                 </div>
                 <div className="row">
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="indexOf"
