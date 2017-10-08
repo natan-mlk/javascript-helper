@@ -100,12 +100,12 @@ class ArrayTrueFalse extends Component {
                 <div className="choose-function">
                     <div className={this.state.func1Class + " chosen-func"}
                          onClick={() => this.setState({
-                             whatFunction: (elem) => elem === 'number',
+                             whatFunction: (elem) => elem >= 3,
                              func1Class: 'active',
                              func2Class: '',
                              func3Class: '',
                          })}>
-                        <p>let Func = (elem) => elem === 'number'</p>
+                        <p>let Func = (elem) => elem >= 3</p>
                     </div>
                     <div className={this.state.func2Class + " chosen-func"}
                          onClick={() => this.setState({
