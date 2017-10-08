@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ArrayFunctions from './array-functions'
+import ArrayFunctions from './array-single-value-functions'
 
 
 class ArrayTrueFalse extends Component {
@@ -16,25 +16,19 @@ class ArrayTrueFalse extends Component {
         };
     }
 
-    everyArray() {
+    findArray() {
         if (this.state.currentArray.length > 0) {
-            if (this.state.currentArray.every((elem) => elem >= 10)) {
-                return 'true'
-            } else {
-                return 'false'
-            }
+            return this.state.currentArray.find((elem) => elem > 3);
+
         }
     }
 
-    someArray() {
+    findIndexArray () {
         if (this.state.currentArray.length > 0) {
-            if (this.state.currentArray.some((elem) => elem >= 10)) {
-                return 'true'
-            } else {
-                return 'false'
-            }
+            return this.state.currentArray.findIndex((elem) => elem > 3);
         }
     }
+
 
 
     render() {
@@ -83,17 +77,18 @@ class ArrayTrueFalse extends Component {
                 </div>
 
                 <div className="row first">
-                    <ArrayFunctions myArrayIs={this.state.currentArray} name="every"
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="find"
                                     nameOfArray={this.state.nameOfArray}
-                                    myFunction={() => this.everyArray()}
+                                    myFunction={() => this.findArray()}
                                     brackets="func"
-                                    description="Czy każdy element spełnia warunek zadany w funkcji func"/>
+                                    description="Zwróć pierwszy element, który spełni warunek"/>
 
-                    <ArrayFunctions myArrayIs={this.state.currentArray} name="some"
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="findIndex"
                                     nameOfArray={this.state.nameOfArray}
-                                    myFunction={() => this.someArray()}
+                                    myFunction={() => this.findIndexArray()}
                                     brackets="func"
-                                    description="Czy chociaż jeden element spełnia warunek zadany w funkcji func"/>
+                                    description="Zwróć index pierwszego elementu, który spełni warunek"/>
+
                 </div>
             </div>
         )

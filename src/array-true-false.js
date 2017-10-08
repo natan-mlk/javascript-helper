@@ -36,6 +36,16 @@ class ArrayTrueFalse extends Component {
         }
     }
 
+    includesArray() {
+        if (this.state.currentArray.length > 0) {
+            if (this.state.currentArray.includes('kot')) {
+                return 'true'
+            } else {
+                return 'false'
+            }
+        }
+    }
+
 
     render() {
 
@@ -49,6 +59,7 @@ class ArrayTrueFalse extends Component {
                     <p>Wybierz tablicę:</p>
                     <button className="reset"
                             onClick={() => this.setState({
+                                currentArray: [],
                                 arrayNumbers: [3, 10, 18, 20],
                                 arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],
                                 numbersClass: '',
@@ -94,6 +105,12 @@ class ArrayTrueFalse extends Component {
                                     myFunction={() => this.someArray()}
                                     brackets="func"
                                     description="Czy chociaż jeden element spełnia warunek zadany w funkcji func"/>
+
+                    <ArrayFunctions myArrayIs={this.state.currentArray} name="includes"
+                                    nameOfArray={this.state.nameOfArray}
+                                    myFunction={() => this.includesArray()}
+                                    brackets="kot"
+                                    description="Ustala czy dana tablica posiada szukany element"/>
                 </div>
             </div>
         )
