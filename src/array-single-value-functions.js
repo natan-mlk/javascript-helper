@@ -6,7 +6,7 @@ class ArrayFunctions extends React.Component {
         super(props);
         this.state = {
             returnedValue: '???',
-            arrayName: '[wybierz tablicę]'
+            arrayName: '[ ]'
         };
     }
 

@@ -53,11 +53,11 @@ nav {
   z-index: 10;
   .numbers, .strings {
     background-color: white;
-    height: 100px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     border-top: solid 2px $green;
     cursor: pointer;
     -webkit-transition: 0.2s;
@@ -73,6 +73,32 @@ nav {
 
 .given-array {
   color: darken($green-dark, 10);
+}
+
+.choose-function {
+  width: 100%;
+  position: fixed;
+  height: 80px;
+  top: 420px;
+  z-index: 10;
+  cursor: pointer;
+  background-color: white;
+  border-bottom: solid 2px $green;
+  display: flex;
+  .chosen-func {
+    flex-grow: 1;
+    font-size: 1.5rem;
+    border-left: 1px solid $green-dark;
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+  }
+
+  .active {
+    background-color: lighten($green, 25);
+  }
+  .strings {
+    border-bottom: solid 2px $green;
+  }
 }
 
 .row {

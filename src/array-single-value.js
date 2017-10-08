@@ -1,26 +1,25 @@
 import React, {Component} from 'react';
 import ArrayFunctions from './array-single-value-functions'
 
-
 class ArrayTrueFalse extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             currentArray: [],
-            nameOfArray: '[Wybierz tablicę]',
+            nameOfArray: '[ ]',
             arrayNumbers: [3, 10, 18, 20],
             arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'urlop'],
             numbersClass: '',
             stringsClass: '',
+            whatFunction: undefined
         };
     }
 
     findArray() {
-        if (this.state.currentArray.length > 0) {
-            return this.state.currentArray.find((elem) => elem > 3);
-
-        }
+        if (this.state.currentArray.length > 0 && this.state.whatFunction !== undefined) {
+            return this.state.currentArray.find(this.state.whatFunction);
+        } else {return '!wybierz funkcję!'}
     }
 
     findIndexArray() {
@@ -30,18 +29,17 @@ class ArrayTrueFalse extends Component {
         }
     }
 
-    indexOfArray () {
+    indexOfArray() {
         if (this.state.currentArray.length > 0) {
             return this.state.currentArray.indexOf('kot');
         }
     }
 
-    lastIndexOfArray () {
+    lastIndexOfArray() {
         if (this.state.currentArray.length > 0) {
             return this.state.currentArray.lastIndexOf('kot');
         }
     }
-
 
 
     render() {
@@ -60,7 +58,7 @@ class ArrayTrueFalse extends Component {
                                 arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'urlop'],
                                 numbersClass: '',
                                 stringsClass: '',
-                                nameOfArray: '[Wybierz tablicę]',
+                                nameOfArray: '[ ]',
                             })}>Resetuj tablice
                     </button>
 
@@ -89,17 +87,30 @@ class ArrayTrueFalse extends Component {
                     </div>
                 </div>
 
+                <div className="choose-function">
+                    <div className="chosen-func"
+                         onClick={() => this.setState({whatFunction: (elem) => elem > 3})}>
+                        <p>let Func = (elem) => elem > 3</p>
+                    </div>
+                    <div className="chosen-func"
+                         onClick={() => this.setState({whatFunction: (elem) => elem > 10})}>
+                        <p>let Func = (elem) => elem > 10</p></div>
+                    <div className="chosen-func"
+                         onClick={() => this.setState({whatFunction: (elem) => elem > 19})}>
+                        <p>let Func = (elem) => elem > 19</p></div>
+                </div>
+
                 <div className="row first">
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="find"
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.findArray()}
-                                    brackets="func"
+                                    brackets="Func"
                                     description="Zwróć pierwszy element, który spełni warunek [ES6]"/>
 
                     <ArrayFunctions myArrayIs={this.state.currentArray} name="findIndex"
                                     nameOfArray={this.state.nameOfArray}
                                     myFunction={() => this.findIndexArray()}
-                                    brackets="func"
+                                    brackets="Func"
                                     description="Zwróć index pierwszego elementu, który spełni warunek"/>
                 </div>
                 <div className="row">
