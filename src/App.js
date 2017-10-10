@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, } from 'react-router-dom';
 
 import './App.css';
 import './styles.css';
@@ -10,7 +10,7 @@ import ArraySingleValue from './array-single-value'
 
 const App = () => {
     return (
-        <Router>
+        <Router basename="react-arrays">
             <div className="App">
                 <div className="App-header">
                     <h3>Ogarnij Javascript :] czyli React.js </h3>
@@ -19,7 +19,8 @@ const App = () => {
 
                 <nav>
                     <NavLink activeClassName='is-active' className="nav-link" to="/array-change">Zmienia tablicę</NavLink>
-                    <NavLink exact={true} activeClassName='is-active' className="nav-link" to="/">Zwraca True/false</NavLink>
+                    <NavLink activeClassName='is-active' className="nav-link" to="/" exact>Zwraca True/false</NavLink>
+                    {/*<NavLink activeClassName='is-active' className="nav-link" to="/" exact={true}>Zwraca True/false</NavLink>*/}
                     <NavLink activeClassName='is-active' className="nav-link" to="/array-single-value">Zwraca pojedynczą wartość</NavLink>
                 </nav>
 
