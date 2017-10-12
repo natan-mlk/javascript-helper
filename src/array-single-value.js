@@ -23,7 +23,8 @@ class ArrayTrueFalse extends Component {
         if (this.state.currentArray.length > 0 && this.state.whatFunction !== undefined) {
             return this.state.currentArray.find(this.state.whatFunction);
         } else {
-            return '!wybierz tablicę i funkcję!'
+            document.getElementById('alert').style.display = 'flex';
+            return '???'
         }
     }
 
@@ -31,7 +32,8 @@ class ArrayTrueFalse extends Component {
         if (this.state.currentArray.length > 0 && this.state.whatFunction !== undefined) {
             return this.state.currentArray.findIndex(this.state.whatFunction);
         } else {
-            return '!wybierz tablicę i funkcję!'
+            document.getElementById('alert').style.display = 'flex';
+            return '???'
         }
     }
 
@@ -58,15 +60,6 @@ class ArrayTrueFalse extends Component {
 
                 <div className="choose-array">
                     <p>Wybierz tablicę:</p>
-                    {/*<button className="reset"*/}
-                            {/*onClick={() => this.setState({*/}
-                                {/*arrayNumbers: [3, 10, 18, 20],*/}
-                                {/*arrayStrings: ['kot', 'burger', 'playstation', 'kot', 'urlop'],*/}
-                                {/*numbersClass: '',*/}
-                                {/*stringsClass: '',*/}
-                                {/*nameOfArray: '[ ]',*/}
-                            {/*})}>Resetuj tablice*/}
-                    {/*</button>*/}
 
                     <div className={this.state.numbersClass + " numbers"}
                          onClick={() => this.setState({

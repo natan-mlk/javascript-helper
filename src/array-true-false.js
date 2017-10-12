@@ -22,13 +22,6 @@ class ArrayTrueFalse extends Component {
 
     everyArray() {
 
-        //
-        // if (this.state.currentArray.length > 0 && this.state.whatFunction !== undefined) {
-        //     return this.state.currentArray.find(this.state.whatFunction);
-        // } else {
-        //     return '!wybierz tablicę i funkcję!'
-        // }
-
         if (this.state.currentArray.length > 0 && this.state.whatFunction !== undefined) {
             if (this.state.currentArray.every(this.state.whatFunction)) {
                 return 'true'
@@ -37,7 +30,8 @@ class ArrayTrueFalse extends Component {
             }
         }
         else {
-            return '!wybierz tablicę i funkcję!'
+            document.getElementById('alert').style.display = 'flex';
+            return 'true or false?'
         }
     }
 
@@ -49,7 +43,8 @@ class ArrayTrueFalse extends Component {
                 return 'false'
             }
         } else {
-            return '!wybierz tablicę i funkcję!'
+            document.getElementById('alert').style.display = 'flex';
+            return 'true or false?'
         }
     }
 
@@ -61,7 +56,8 @@ class ArrayTrueFalse extends Component {
                 return 'false'
             }
         } else {
-            return '!wybierz tablicę i funkcję!'
+            document.getElementById('alert').style.display = 'flex';
+            return 'true or false?'
         }
     }
 
@@ -76,16 +72,6 @@ class ArrayTrueFalse extends Component {
 
                 <div className="choose-array">
                     <p>Wybierz tablicę:</p>
-                    {/*<button className="reset"*/}
-                            {/*onClick={() => this.setState({*/}
-                                {/*currentArray: [],*/}
-                                {/*arrayNumbers: [3, 10, 18, 20],*/}
-                                {/*arrayStrings: ['kot', 'burger', 'playstation', 'urlop'],*/}
-                                {/*numbersClass: '',*/}
-                                {/*stringsClass: '',*/}
-                                {/*nameOfArray: '[Wybierz tablicę]',*/}
-                            {/*})}>Resetuj tablice*/}
-                    {/*</button>*/}
 
                     <div className={this.state.numbersClass + " numbers"}
                          onClick={() => this.setState({
@@ -119,12 +105,12 @@ class ArrayTrueFalse extends Component {
                 <div className="choose-function">
                     <div className={this.state.func1Class + " chosen-func"}
                          onClick={() => this.setState({
-                             whatFunction: (elem) => elem >= 3,
+                             whatFunction: (elem) => elem > 3,
                              func1Class: 'active',
                              func2Class: '',
                              func3Class: '',
                          })}>
-                        <p>let Func = (elem) => elem >= 3</p>
+                        <p>let Func = (elem) => elem > 3</p>
                     </div>
                     <div className={this.state.func2Class + " chosen-func"}
                          onClick={() => this.setState({

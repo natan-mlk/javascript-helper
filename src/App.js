@@ -20,13 +20,20 @@ const App = () => {
                 <nav>
                     <NavLink activeClassName='is-active' className="nav-link" to="/array-change">Zmienia tablicę</NavLink>
                     <NavLink activeClassName='is-active' className="nav-link" to="/" exact>Zwraca True/false</NavLink>
-                    {/*<NavLink activeClassName='is-active' className="nav-link" to="/" exact={true}>Zwraca True/false</NavLink>*/}
                     <NavLink activeClassName='is-active' className="nav-link" to="/array-single-value">Zwraca pojedynczą wartość</NavLink>
                 </nav>
 
                 <Route exact path="/" component={ArrayTrueFalse} />
                 <Route path="/array-change" component={ArrayChange} />
                 <Route path="/array-single-value" component={ArraySingleValue} />
+
+                <div className="alert" id="alert">
+                    <div className="box">
+                        <p>Musisz wybrać zarówno tablicę jak i funkcję!</p>
+                        <button onClick={() => document.getElementById('alert').style.display = 'none'} className="close-alert">Spoko, zagapiłem się</button>
+                        <button onClick={() => document.getElementById('alert').style.display = 'none'} className="close-alert">Ja tylko sprawdzam co się stanie</button>
+                    </div>
+                </div>
             </div>
         </Router>
     )

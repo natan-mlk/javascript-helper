@@ -52,13 +52,16 @@ nav {
   }
 }
 
+
+
+//----------- CHOOSING ARRAYS ------------
+
 .choose-array {
   width: 100%;
   padding-top: 175px;
   z-index: 10;
   .numbers, .strings {
     background-color: white;
-    //height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,7 +87,7 @@ nav {
 }
 
 .choose-function-descr {
-text-align: center;
+  text-align: center;
 }
 
 .choose-function {
@@ -117,13 +120,12 @@ text-align: center;
 
 .row {
   margin: 0 auto;
-  //max-width: 1400px;
   display: flex;
   position: relative;
 }
 
 .first {
-  margin: 0 auto ;
+  margin: 0 auto;
 }
 
 .array-functions {
@@ -176,4 +178,40 @@ text-align: center;
   font-size: 1rem;
   background-color: $green;
   color: white;
+}
+
+//----------- POP UP ---------------------
+
+.alert {
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 100;
+  //display: flex;
+  align-items: center;
+  justify-content: center;
+  .box {
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border: solid 2px $green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-size: 1.5rem;
+      margin: 20px 47px;
+    }
+  }
+}
+
+.close-alert {
+  @extend .fire-function;
+  max-width: 400px;
+  margin: 10px 0 10px 0;
+  font-size: 1.2rem;
 }
