@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, NavLink, } from 'react-router-dom';
 import './App.css';
 import './styles.css';
 
+import Home from './home'
 import ArrayTrueFalse from './array-true-false'
 import ArrayChange from './array-change'
 import ArraySingleValue from './array-single-value'
@@ -12,28 +13,24 @@ const App = () => {
     return (
         <Router basename="react-arrays">
             <div className="App">
-                <div className="App-header">
-                    <h3>Ogarnij Javascript :] czyli React.js </h3>
-                    <h2>Metody dla [tablic]</h2>
-                </div>
+                <NavLink activeClassName='is-active' className="nav-link" to="/">
+                    <div className="App-header">
+                        <h3>Ogarnij Javascript :] czyli React.js </h3>
+                        <h2>Metody dla [tablic]</h2>
+                    </div>
+                </NavLink>
 
                 <nav>
                     <NavLink activeClassName='is-active' className="nav-link" to="/array-change">Zmienia tablicę</NavLink>
-                    <NavLink activeClassName='is-active' className="nav-link" to="/" exact>Zwraca True/false</NavLink>
+                    <NavLink activeClassName='is-active' className="nav-link" to="/array-true-false" exact>Zwraca True/false</NavLink>
+                    {/*<NavLink activeClassName='is-active' className="nav-link" to="/" exact={true}>Zwraca True/false</NavLink>*/}
                     <NavLink activeClassName='is-active' className="nav-link" to="/array-single-value">Zwraca pojedynczą wartość</NavLink>
                 </nav>
 
-                <Route exact path="/" component={ArrayTrueFalse} />
+                <Route exact path="/" component={Home} />
+                <Route path="/array-true-false" component={ArrayTrueFalse} />
                 <Route path="/array-change" component={ArrayChange} />
                 <Route path="/array-single-value" component={ArraySingleValue} />
-
-                <div className="alert" id="alert">
-                    <div className="box">
-                        <p>Musisz wybrać zarówno tablicę jak i funkcję!</p>
-                        <button onClick={() => document.getElementById('alert').style.display = 'none'} className="close-alert">Spoko, zagapiłem się</button>
-                        <button onClick={() => document.getElementById('alert').style.display = 'none'} className="close-alert">Ja tylko sprawdzam co się stanie</button>
-                    </div>
-                </div>
             </div>
         </Router>
     )
