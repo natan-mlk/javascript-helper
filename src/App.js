@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink, } from 'react-router-dom';
+import {BrowserRouter as Router, Route, NavLink,} from 'react-router-dom';
 
 import './App.css';
 import './styles.css';
@@ -21,64 +21,105 @@ const App = () => {
                 </NavLink>
 
                 <nav>
-                    <NavLink activeClassName='is-active' className="nav-link" to="/array-change">Zmienia tablicę</NavLink>
-                    <NavLink activeClassName='is-active' className="nav-link" to="/array-true-false" exact>Zwraca True/false</NavLink>
+                    <NavLink activeClassName='is-active' className="nav-link" to="/array-change">Zmienia
+                        tablicę</NavLink>
+                    <NavLink activeClassName='is-active' className="nav-link" to="/array-true-false" exact>Zwraca
+                        True/false</NavLink>
                     {/*<NavLink activeClassName='is-active' className="nav-link" to="/" exact={true}>Zwraca True/false</NavLink>*/}
-                    <NavLink activeClassName='is-active' className="nav-link" to="/array-single-value">Zwraca pojedynczą wartość</NavLink>
+                    <NavLink activeClassName='is-active' className="nav-link" to="/array-single-value">Zwraca pojedynczą
+                        wartość</NavLink>
                 </nav>
 
-                <Route exact path="/" component={Home} />
-                <Route path="/array-true-false" component={ArrayTrueFalse} />
-                <Route path="/array-change" component={ArrayChange} />
-                <Route path="/array-single-value" component={ArraySingleValue} />
+                <Route exact path="/" component={Home}/>
+                <Route path="/array-true-false" component={ArrayTrueFalse}/>
+                <Route path="/array-change" component={ArrayChange}/>
+                <Route path="/array-single-value" component={ArraySingleValue}/>
+
+                <div className="alert" id="alert">
+                    <div className="box">
+                        <p>Musisz wybrać zarówno tablicę jak i funkcję!</p>
+                        <button onClick={() => document.getElementById('alert').style.display = 'none'}
+                                className="close-alert">Spoko, zagapiłem się
+                        </button>
+                        <button onClick={() => document.getElementById('alert').style.display = 'none'}
+                                className="close-alert">Ja tylko sprawdzam co się stanie
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </Router>
     )
 };
 
-{/*spis metod*/}
-{/*https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array*/}
+{/*spis metod*/
+}
+{/*https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array*/
+}
 
-{/*Zwraca True/false: isArray(), every(), includes(),  some()*/}
+{/*Zwraca True/false: isArray(), every(), includes(),  some()*/
+}
 
-{/*Zwraca pojedynczą wartość: find(), findIndex(), indexOf(), lastIndexOf()*/}
+{/*Zwraca pojedynczą wartość: find(), findIndex(), indexOf(), lastIndexOf()*/
+}
 
-{/*Zmienia Array: copyWithin(), *fill(), push(), splice(), unshift()*/}
+{/*Zmienia Array: copyWithin(), *fill(), push(), splice(), unshift()*/
+}
 
-{/*Nowy Array: filter(), map(), slice()*/}
+{/*Nowy Array: filter(), map(), slice()*/
+}
 
-{/*Działania na 2 array: concat(),*/}
+{/*Działania na 2 array: concat(),*/
+}
 
-{/*Iteracja po tablicy: forEach()*/}
+{/*Iteracja po tablicy: forEach()*/
+}
 
-{/*Laczy tablice: join()*/}
+{/*Laczy tablice: join()*/
+}
 
-{/*Metoda specjalna: reduce(), reduceRight()*/}
-
-
-
-{/*The difference is in the return values.*/}
-
-{/*.map() returns a new Array of objects created by taking some action on the original item.*/}
-
-{/*.every() returns a boolean - true if every element in this array satisfies the provided testing*/}
-{/*function. An important difference with .every() is that the test function may not always be called for*/}
-{/*every element in the array. Once the testing function returns false for any element, no more array*/}
-{/*elements are iterated. Therefore, the testing function should usually have no side effects.*/}
-
-{/*.forEach() returns nothing - It iterates the Array performing a given action for each item in the Array.*/}
+{/*Metoda specjalna: reduce(), reduceRight()*/
+}
 
 
-{/*---------------*/}
+{/*The difference is in the return values.*/
+}
 
-{/*.every() (stops looping the first time the iterator returns false or something falsey)*/}
-{/*.some() (stops looping the first time the iterator returns true or something truthy)*/}
-{/*.filter() (creates a new array including elements where the filter function returns true and omitting*/}
-{/*the ones where it returns false)*/}
-{/*.map() (creates a new array from the values returned by the iterator function)*/}
-{/*.reduce() (builds up a value by repeated calling the iterator, passing in previous values; see the spec*/}
-{/*for the details; useful for summing the contents of an array and many other things)*/}
-{/*.reduceRight() (like reduce, but works in descending rather than ascending order)*/}
+{/*.map() returns a new Array of objects created by taking some action on the original item.*/
+}
+
+{/*.every() returns a boolean - true if every element in this array satisfies the provided testing*/
+}
+{/*function. An important difference with .every() is that the test function may not always be called for*/
+}
+{/*every element in the array. Once the testing function returns false for any element, no more array*/
+}
+{/*elements are iterated. Therefore, the testing function should usually have no side effects.*/
+}
+
+{/*.forEach() returns nothing - It iterates the Array performing a given action for each item in the Array.*/
+}
+
+
+{/*---------------*/
+}
+
+{/*.every() (stops looping the first time the iterator returns false or something falsey)*/
+}
+{/*.some() (stops looping the first time the iterator returns true or something truthy)*/
+}
+{/*.filter() (creates a new array including elements where the filter function returns true and omitting*/
+}
+{/*the ones where it returns false)*/
+}
+{/*.map() (creates a new array from the values returned by the iterator function)*/
+}
+{/*.reduce() (builds up a value by repeated calling the iterator, passing in previous values; see the spec*/
+}
+{/*for the details; useful for summing the contents of an array and many other things)*/
+}
+{/*.reduceRight() (like reduce, but works in descending rather than ascending order)*/
+}
 
 
 export default App;
