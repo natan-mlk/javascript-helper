@@ -2,13 +2,13 @@ import React from 'react';
 import {BrowserRouter as Router, Route, NavLink,} from 'react-router-dom';
 
 import './App.css';
-import './styles.css';
+import './styles/styles.css';
 
-import Home from './home'
-import ArrayTrueFalse from './array-true-false'
-import ArrayChange from './array-change'
-import ArraySingleValue from './array-single-value'
-import AlertBox from './alert-box'
+import Home from './components/home'
+import ArrayTrueFalse from './components/array-true-false'
+import ArrayChange from './components/array-change'
+import ArraySingleValue from './components/array-single-value'
+import AlertBox from './components/alert-box'
 
 const App = () => {
     return (
