@@ -8,6 +8,7 @@ import Home from './home'
 import ArrayTrueFalse from './array-true-false'
 import ArrayChange from './array-change'
 import ArraySingleValue from './array-single-value'
+import AlertBox from './alert-box'
 
 const App = () => {
     return (
@@ -35,17 +36,7 @@ const App = () => {
                 <Route path="/array-change" component={ArrayChange}/>
                 <Route path="/array-single-value" component={ArraySingleValue}/>
 
-                <div className="alert" id="alert">
-                    <div className="box">
-                        <p>Musisz wybrać zarówno tablicę jak i funkcję!</p>
-                        <button onClick={() => document.getElementById('alert').style.display = 'none'}
-                                className="close-alert">Spoko, zagapiłem się
-                        </button>
-                        <button onClick={() => document.getElementById('alert').style.display = 'none'}
-                                className="close-alert">Ja tylko sprawdzam co się stanie
-                        </button>
-                    </div>
-                </div>
+                <AlertBox/>
 
             </div>
         </Router>
